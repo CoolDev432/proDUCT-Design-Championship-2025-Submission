@@ -2,13 +2,13 @@ import React from 'react'
 import Hero from './components/Hero'
 import Nav from './components/Nav'
 
-const page = () => {
+const Ideation = () => {
   return (
     <div>
-      <Nav />
-      <Hero />
+        <Nav />
+        <Hero />    
     </div>
   )
 }
 
-export default page
+export default Ideation
