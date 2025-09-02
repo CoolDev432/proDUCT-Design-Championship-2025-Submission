@@ -33,7 +33,7 @@ const Hero = () => {
   
   return (
     <div>
-        <div className={`${instrumentSerif.className} flex justify-center items-center flex-col`}>
+        <div className={`${instrumentSerif.className} flex justify-center items-center flex-col mt-30`}>
             <h1 className={`${instrumentSerif.className} text-9xl`}>
                 Ideas
             </h1>

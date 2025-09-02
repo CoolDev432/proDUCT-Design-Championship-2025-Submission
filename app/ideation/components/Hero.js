@@ -42,7 +42,6 @@ const Hero = () => {
     const data = await res.json()
     console.log("Response:", data)
     setRes(data)
-    alert(`Your idea has been submitted!`)
   }
 
   const submit = async () => {
@@ -57,6 +56,8 @@ const Hero = () => {
       method: "POST",
       body: formData
     })
+
+        alert(`Your idea has been submitted!`)
   }
 
   useEffect(() => {
@@ -67,7 +68,7 @@ const Hero = () => {
 
 
   return (
-    <div className={`${instrumentSerif.className} flex flex-col items-center`}>
+    <div className={`${instrumentSerif.className} flex flex-col items-center mt-30`}>
       <div className="mb-3 text-left">
         <p className="md:text-6xl text-4xl">AI</p>
         <h1 className="md:text-9xl text-7xl">Ideation</h1>
