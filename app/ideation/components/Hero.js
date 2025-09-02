@@ -50,6 +50,7 @@ const Hero = () => {
     formData.append("content", Res)
     formData.append("title", title)
     formData.append("email", email)
+    formData.append("name", user?.firstName)
 
 
     const res = await fetch(`/api/createProduct`, {

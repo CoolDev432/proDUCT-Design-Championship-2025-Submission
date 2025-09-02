@@ -8,6 +8,8 @@ export async function POST(req) {
     const content = formData.get("content")
     const file = formData.get("logo")
     const email = formData.get("email")
+    const name = formData.get("name")
+
 
     const uploaded = await storage.createFile(
         'logos',
@@ -24,7 +26,8 @@ export async function POST(req) {
             title: title,
             content: content,
             logo: url,
-            email: email
+            email: email,
+            name: name
         }
     })
 }
