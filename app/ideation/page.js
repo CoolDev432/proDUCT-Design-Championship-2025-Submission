@@ -6,6 +6,7 @@ const Ideation = () => {
   return (
     <div>
         <Nav />
+        
         <Hero />    
     </div>
   )
