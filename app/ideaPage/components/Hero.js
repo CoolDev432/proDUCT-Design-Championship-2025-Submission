@@ -3,9 +3,9 @@
 import React, { useEffect, useState } from 'react'
 import { Instrument_Serif } from 'next/font/google'
 import { useUser } from '@clerk/nextjs'
-import { FiArrowUp } from 'react-icons/fi'
+import { FiArrowUp, FiSearch } from 'react-icons/fi'
 import { useRouter } from 'next/navigation'
-import { FiSearch } from 'react-icons/fi'
+import { LuBot } from 'react-icons/lu';
 
 const instrumentSerif = Instrument_Serif({
   weight: '400',
@@ -79,7 +79,14 @@ const Hero = () => {
             </div>
           </div>
         ))}
-      </div>
+
+        </div>
+       <div className="flex w-[98vw] justify-end p-1">
+  <div className="bg-indigo-600 p-4 hover:border-indigo-700 hover:border-2 hover:text-indigo-700 hover:scale-110 hover:bg-white border-solid transition-all duration-200 text-white text-2xl rounded-3xl cursor-pointer">
+    <LuBot /> 
+  </div>
+</div>
+
     </section>
   )
 }
