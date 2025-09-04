@@ -1,60 +1,45 @@
-'use client'
-
-import React, { useEffect, useRef } from "react"
-import { Instrument_Serif } from "next/font/google"
-import { SignedIn, SignedOut, SignInButton, SignOutButton, SignUpButton, UserButton } from "@clerk/nextjs"
-import gsap from "gsap"
-import Link from "next/link"
-
-const instrumentSerif = Instrument_Serif({
-    weight: "400",
-    subsets: ["latin"],
-})
+import React from "react";
+import { SignedIn, SignedOut, SignIn, SignInButton, SignOutButton } from "@clerk/nextjs";
+import Link from "next/link";
 
 const Hero = () => {
-    const head = useRef()
-    useEffect(() => {
-        gsap.fromTo(head.current, { opacity: 0 }, { opacity: 1, duration: 2 })
-    }, [])
+  return (
+    <section className="relative bg-slate-100 min-h-[80vh] w-full shadow-2xl flex flex-col justify-center items-center px-6 sm:px-12 text-center overflow-hidden">
+      <div className="absolute top-20 left-20 w-72 h-72 md:bg-pink-500/40 bg-indigo-600/30 rounded-full blur-3xl"></div>
 
-    return (
-        <div ref={head} className={`${instrumentSerif.className} flex justify-center items-center mt-20 flex-col`}>
+      <div className="relative z-10 max-w-4xl">
+        <h1 className="font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans leading-tight">
+          Turn Your Ideas Into <br />
+          <span className="text-indigo-700">Impactful</span> Startups
+        </h1>
+
+        <p className="text-gray-600 font-medium text-lg sm:text-xl md:text-2xl font-sans mt-6 opacity-90">
+          A community-driven platform for students to refine concepts, get valuable feedback, and launch their venture.
+        </p>
+
+        <div>
+          <SignedOut>
+            <SignInButton />
+            <SignOutButton />
+          </SignedOut>
+          <SignedIn>
             <div>
-                <p className="md:text-4xl text-3xl">
-                    The Best Way To
-                </p>
-                <h1 className="md:text-8xl text-6xl">
-                    Publish Your <u>Idea</u>
-                </h1>
+            <button className="bg-blue-600 p-3 text-white rounded-3xl m-3 cursor-pointer hover:opacity-80 transition-all transition-1">
+              <Link href={`/dashboard`}>
+                  Dashboard
+              </Link>
+            </button>
+            <SignOutButton>
+              <button className="cursor-pointer text-red-700">
+                Sign Out
+              </button>
+            </SignOutButton>
             </div>
-            <SignedOut>
-                <div className="bg-black h-10 w-50 text-white flex justify-evenly rounded-2xl">
-                    <SignInButton className={`cursor-pointer`} />
-                    <SignUpButton className={`cursor-pointer`} />
-                </div>
-            </SignedOut>
-
-            <SignedIn>
-                <div className="bg-black h-10 p-3 w-90 text-white flex justify-evenly items-center rounded-2xl mt-2">
-                    <div className="flex items-center gap-2">
-                    <UserButton />
-                    <Link href={`/dashboard`}>
-                        Dashbaord
-                    </Link>
-                    </div>
-                    <SignOutButton className={`cursor-pointer`} />
-                </div>
-            </SignedIn>
-
-
-            <div className="w-[95vw] flex justify-between mt-10">
-                <div className="md:h-40 h-30 mt-20 md:w-40 w-10 bg-black hover:translate-y-2.5 hover:rotate-6 transition-all transition-2">
-
-                </div>
-
-            </div>
+          </SignedIn>
         </div>
-    )
-}
+      </div>
+    </section>
+  );
+};
 
-export default Hero
+export default Hero;
