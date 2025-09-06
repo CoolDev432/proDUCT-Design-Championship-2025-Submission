@@ -41,6 +41,8 @@ const Hero = () => {
   return (
     <section className={`${instrumentSerif.className} mt-28 px-6 `}>
       <div className="text-center mb-12 mt-40 ">
+              <div className="absolute top-40 left-20 w-42 h-42 bg-indigo-500/30 rounded-full blur-3xl z-10"></div>
+
         <h1 className="text-6xl md:text-8xl  tracking-tight">
           Ideas
         </h1>
@@ -55,7 +57,7 @@ const Hero = () => {
       </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto z-50">
         {ideas?.map((item, index) => (
           <div
             key={index}

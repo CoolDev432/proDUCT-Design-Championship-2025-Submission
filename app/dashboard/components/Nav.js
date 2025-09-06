@@ -51,6 +51,9 @@ const Nav = () => {
                         <Link href="/" className="hover:text-indigo-600 transition-colors">
                             Home
                         </Link>
+                        <Link href="/forum" className="hover:text-indigo-600 transition-colors">
+                            Forum
+                        </Link>
                     </div>
 
                     <div className="flex items-center gap-2 md:gap-3">

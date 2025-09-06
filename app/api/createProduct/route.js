@@ -30,4 +30,6 @@ export async function POST(req) {
             name: name
         }
     })
+
+    NextResponse.json({success: true})
 }

@@ -1,9 +1,15 @@
 import React from 'react'
 import { FiMessageSquare, FiZap } from 'react-icons/fi'
+import { Instrument_Serif } from 'next/font/google'
+const instrumentSerif = Instrument_Serif({
+  weight: '400',
+  subsets: ['latin'],
+})
+
 
 const About = () => {
   return (
-    <div className="h-fit w-[99vw] px-6 py-20 relative overflow-hidden">
+    <div className={`${instrumentSerif.className} h-fit w-[99vw] px-6 py-20 relative overflow-hidden`}>
       <div className="absolute left-3 md:top-40 top-20 w-72 h-72 md:bg-indigo-500/40 bg-indigo-600/30 rounded-full blur-3xl"></div>
 
       <div className="flex justify-center items-center flex-col relative z-10">

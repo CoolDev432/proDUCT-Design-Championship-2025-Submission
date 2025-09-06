@@ -28,7 +28,7 @@ const Trending = () => {
 
   return (
     <section
-      className={`font-sans font-extralight relative bg-slate-50 py-20 px-6 sm:px-12 flex flex-col justify-center items-center text-center overflow-hidden`}
+      className={`${instrumentSerif.className} font-extralight relative bg-slate-50 py-20 px-6 sm:px-12 flex flex-col justify-center items-center text-center overflow-hidden`}
     >
 
       <div className="relative z-10 max-w-5xl">

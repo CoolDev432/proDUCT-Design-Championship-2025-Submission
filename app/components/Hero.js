@@ -3,19 +3,25 @@
 import React from "react";
 import { SignedIn, SignedOut, SignInButton, SignOutButton } from "@clerk/nextjs";
 import Link from "next/link";
+import { Instrument_Serif } from 'next/font/google'
+const instrumentSerif = Instrument_Serif({
+  weight: '400',
+  subsets: ['latin'],
+})
+
 
 const Hero = () => {
   return (
-    <section className="relative bg-slate-100 min-h-[80vh] w-full shadow-2xl flex flex-col justify-center items-center px-6 sm:px-12 text-center overflow-hidden">
+    <section className={`relative bg-slate-100 min-h-[80vh] w-full shadow-2xl flex flex-col justify-center items-center px-6 sm:px-12 text-center overflow-hidden ${instrumentSerif.className}`}>
       <div className="absolute top-20 left-20 w-72 h-72 md:bg-pink-500/40 bg-indigo-600/30 rounded-full blur-3xl"></div>
 
       <div className=" z-10 max-w-4xl">
-        <h1 className="font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans leading-tight">
+        <h1 className="font-extrabold text-4xl sm:text-5xl md:text-6xl lg:text-7xl  leading-tight">
           Turn Your Ideas Into <br />
           <span className="text-indigo-700">Impactful</span> Startups
         </h1>
 
-        <p className="text-gray-600 font-medium text-lg sm:text-xl md:text-2xl font-sans mt-6 opacity-90">
+        <p className="text-gray-600 font-medium text-lg sm:text-xl md:text-2xl  mt-6 opacity-90">
           A community-driven platform for students to refine concepts, get valuable feedback, and launch their venture.
         </p>
 
