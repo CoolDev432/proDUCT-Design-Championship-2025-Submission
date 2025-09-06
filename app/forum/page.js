@@ -3,77 +3,88 @@
 import React, { useState, useEffect } from 'react'
 import { FiSend } from 'react-icons/fi'
 import { useUser } from '@clerk/nextjs'
+
 const Forum = () => {
+  const { user } = useUser()
+  const [Content, setContent] = useState("")
+  const [Res, setRes] = useState([])
 
-    const { user } = useUser()
-    const [Content, setContent] = useState()
-    const [Res, setRes] = useState([])
+  const sendPost = async () => {
+    await fetch("/api/createPost", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: user?.fullName || "Anonymous",
+        post_content: Content,
+        email: user?.emailAddresses[0].emailAddress,
+      }),
+    })
+    setContent("")
+    getPost()
+  }
 
-    const sendPost = async () => {
-        const res = await fetch("/api/createPost", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                name: user?.fullName || "Anonymous",
-                post_content: Content,
-                email: user?.emailAddresses[0].emailAddress
-            }),
-        })
-        getPost()
-    }
+  const getPost = async () => {
+    const res = await fetch(`/api/getPosts`)
+    const resJSON = await res.json()
+    setRes(resJSON.rows)
+  }
 
-    const getPost = async () => {
-        const res = await fetch(`/api/getPosts`);
-        const resJSON = await res.json()
-        setRes(resJSON.rows)
-    }
+  useEffect(() => {
+    getPost()
 
-
-    useEffect(() => {
+    const interval = setInterval(() => {
       getPost()
-    }, [])
-    
-    return (
-        <div>
-            <div className='h-[80vh] mt-2 rounded-t-2xl w-[99vw] overflow-y-scroll m-auto relative'>
-                <div className="absolute top-70 left-20 w-62 h-62 bg-indigo-500/30 rounded-full blur-3xl z-10"></div>
- <div className='flex justify-center items-center flex-col w-full'>
-  {Res?.map((item, index) => (
-    <div
-      key={index}
-      className={`w-full flex ${
-        item?.email === user?.emailAddresses[0].emailAddress
-          ? "justify-end"
-          : "justify-start"
-      }`}
-    >
-      <div
-        className={`${
-          item?.email === user?.emailAddresses[0].emailAddress
-            ? "bg-green-500 text-white"
-            : "bg-white text-black border-2"
-        } p-4 rounded-3xl m-2 max-w-[70%] whitespace-pre-line`}
-      >
-        <p>{item?.post_content}</p>
+    }, 60000) 
+
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <div>
+      <div className='h-[80vh] mt-2 rounded-t-2xl w-[99vw] overflow-y-scroll m-auto relative'>
+        <div className="fixed top-70 left-20 w-62 opacicty-60 h-62 bg-indigo-500/30 rounded-full blur-3xl z-10"></div>
+        <div className='flex justify-center items-center flex-col w-full z-50'>
+          {Res?.map((item, index) => (
+            <div
+              key={index}
+              className={`w-full flex ${
+                item?.email === user?.emailAddresses[0].emailAddress
+                  ? "justify-end"
+                  : "justify-start"
+              }`}
+            >
+              <div
+                className={`${
+                  item?.email === user?.emailAddresses[0].emailAddress
+                    ? "bg-green-500 text-white"
+                    : "bg-white text-black border-2"
+                } p-4 rounded-3xl m-2 max-w-[70%] whitespace-pre-line`}
+              >
+                <p>{item?.post_content}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className='flex justify-center items-center'>
+        <textarea
+          placeholder='Type here!'
+          value={Content}
+          onChange={(e) => setContent(e.target.value)}
+          className='shadow-2xs hover:shadow-xl hover:translate-[-5px] transition-1 transition-all p-3 md:w-120 w-50 rounded-2xl border-1'
+        />
+        <button
+          className='m-4 shadow-xl cursor-pointer hover:scale-120 rounded-2xl transition-1 transition-all p-2'
+          onClick={sendPost}
+        >
+          <FiSend />
+        </button>
       </div>
     </div>
-  ))}
-</div>
-
-            </div>
-
-            <div className='flex justify-center items-center'>
-                <textarea type="text" placeholder='Type here!' className='sshadow-2xs hover:shadow-xl hover:translate-[-5px] transition-1 transition-all p-3 md:w-120 w-50 rounded-2xl border-1' onChange={(e) => { setContent(e.target.value) }} />
-                <button className='m-4 shadow-xl cursor-pointer hover:scale-120 rounded-2xl transition-1 transition-all p-2' onClick={() => {
-                    sendPost()
-                }}>
-                    <FiSend />
-                </button>
-            </div>
-        </div>
-    )
+  )
 }
 
 export default Forum
