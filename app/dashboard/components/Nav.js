@@ -51,8 +51,8 @@ const Nav = () => {
                         <Link href="/" className="hover:text-indigo-600 transition-colors">
                             Home
                         </Link>
-                        <Link href="/forum" className="hover:text-indigo-600 transition-colors">
-                            Forum
+                        <Link href="/quiz" className="hover:text-indigo-600 transition-colors">
+                            Personality Quiz
                         </Link>
                     </div>
 

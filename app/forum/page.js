@@ -7,6 +7,7 @@ import { useUser } from '@clerk/nextjs'
 const Forum = () => {
   const { user } = useUser()
   const [Content, setContent] = useState("")
+  const [Title, setTitle] = useState("")
   const [Res, setRes] = useState([])
 
   const sendPost = async () => {
@@ -19,6 +20,7 @@ const Forum = () => {
         name: user?.fullName || "Anonymous",
         post_content: Content,
         email: user?.emailAddresses[0].emailAddress,
+        title: Title
       }),
     })
     setContent("")
@@ -42,8 +44,8 @@ const Forum = () => {
   }, [])
 
   return (
-    <div>
-      <div className='h-[80vh] mt-2 rounded-t-2xl w-[99vw] overflow-y-scroll m-auto relative'>
+    <div className='bg-slate-100'>
+      <div className='h-[71vh] mt-2 rounded-t-2xl w-[99vw] overflow-y-scroll m-auto relative '>
         <div className="fixed top-70 left-20 w-62 opacicty-60 h-62 bg-indigo-500/30 rounded-full blur-3xl z-10"></div>
         <div className='flex justify-center items-center flex-col w-full z-50'>
           {Res?.map((item, index) => (
@@ -56,20 +58,24 @@ const Forum = () => {
               }`}
             >
               <div
-                className={`${
-                  item?.email === user?.emailAddresses[0].emailAddress
-                    ? "bg-green-500 text-white"
-                    : "bg-white text-black border-2"
-                } p-4 rounded-3xl m-2 max-w-[70%] whitespace-pre-line`}
+                className='bg-white m-auto mt-10 w-220 p-10 flex justify-center flex-col items-center rounded-3xl'
               >
-                <p>{item?.post_content}</p>
+                <h1 className='text-3xl font-bold font-sans p-20'>
+                  {
+                    item?.title
+                  }
+                </h1>
+                <p className='whitespace-pre-line'>{item?.post_content}</p>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      <div className='flex justify-center items-center'>
+      <div className='flex justify-center items-center flex-col'>
+        <input type="text" className='shadow-2xs m-2 hover:shadow-xl  hover:translate-[-5px] transition-1 transition-all p-3 md:w-120 w-50 rounded-2xl border-1' placeholder='Title for post' onChange={(e)=>{
+          setTitle(e.target.value)
+        }} />
         <textarea
           placeholder='Type here!'
           value={Content}
