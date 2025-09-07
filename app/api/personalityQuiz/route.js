@@ -24,7 +24,7 @@ export async function POST(req) {
                         Ans: ${q3}
 
 
-                        Analyze these answers and help the student find their perfect idea! Talk in a friendly and relatable manner. Give them ONLY 1 startup idea!
+                        Analyze these answers and help the student find their perfect idea! Talk in a friendly and relatable manner.Keep it brief and short but not too short. Give them ONLY 1 startup idea!
                         `,
                     },
                 ],
