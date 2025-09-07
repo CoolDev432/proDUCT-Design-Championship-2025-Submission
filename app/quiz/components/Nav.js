@@ -19,14 +19,14 @@ const Nav = () => {
         if (nav.current) {
             gsap.fromTo(
                 nav.current,
-                { opacity: 0, y: -20 }, 
+                { opacity: 0, y: -20 },
                 { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" }
             )
         }
     }, [])
 
     return (
-        <div
+          <div
             ref={nav}
             className={`${instrumentSerif.className} fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-md`}
         >
@@ -42,17 +42,14 @@ const Nav = () => {
 
                 <div className="flex items-center gap-6">
                     <div className="flex-row  flex  gap-6 text-lg font-medium">
-                        <Link href="/ideation" className="hover:text-indigo-600 transition-colors">
-                            Ideation
-                        </Link>
                         <Link href="/ideaPage" className="hover:text-indigo-600 transition-colors">
                             Idea Page
                         </Link>
-                        <Link href="/" className="hover:text-indigo-600 transition-colors">
-                            Home
+                       <Link href="/ideation" className="hover:text-indigo-600 transition-colors">
+                            Ideation
                         </Link>
-                        <Link href="/quiz" className="hover:text-indigo-600 transition-colors">
-                            Personality Quiz
+                        <Link href="/dashboard" className="hover:text-indigo-600 transition-colors">
+                            Dashboard
                         </Link>
                     </div>
 

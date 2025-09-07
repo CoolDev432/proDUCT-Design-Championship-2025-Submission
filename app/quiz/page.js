@@ -5,6 +5,7 @@ import Q1 from "./components/Q1";
 import Q2 from "./components/Q2";
 import Q3 from "./components/Q3";
 import Res from "./components/Res";
+import Nav from "./components/Nav";
 
 const Quiz = () => {
   const [Count, setCount] = useState(1);
@@ -39,6 +40,7 @@ const Quiz = () => {
 
   return (
     <div className="flex flex-col justify-center items-center h-[100vh] bg-gray-50 px-4">
+      <Nav />
       <h1 className={`font-serif text-3xl md:text-5xl font-bold mt-10 mb-8 text-gray-800 text-center z-50 relative`}>
         Personality Quiz
       </h1>

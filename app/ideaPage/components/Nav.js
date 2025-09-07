@@ -26,27 +26,27 @@ const Nav = () => {
     }, [])
 
     return (
-        <nav
+          <div
             ref={nav}
-            className={`${instrumentSerif.className} fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-md`}
+            className={`${instrumentSerif.className} fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-xl shadow-md`}
         >
-            <div className="max-w-7xl mx-auto px-6 py-4 flex md:flex-row flex-col items-center justify-between">
+            <div className="max-w-7xl m-auto p-4 flex md:flex-row flex-col items-center justify-between">
                 <div className="flex flex-col items-end">
                     <p className="text-sm md:text-base text-black">
                         the kidpreneur platform
                     </p>
-                    <h1 className="text-4xl md:text-5xl  tracking-tight">
+                    <h1 className="text-4xl md:text-5xl">
                         proDUCT
                     </h1>
                 </div>
 
                 <div className="flex items-center gap-6">
                     <div className="flex-row  flex  gap-6 text-lg font-medium">
-                        <Link href="/ideation" className="hover:text-indigo-600 transition-colors">
+                       <Link href="/ideation" className="hover:text-indigo-600 transition-colors">
                             Ideation
                         </Link>
-                        <Link href="/" className="hover:text-indigo-600 transition-colors">
-                            Home
+                        <Link href="/dashboard" className="hover:text-indigo-600 transition-colors">
+                            Dashboard
                         </Link>
                     </div>
 
@@ -60,7 +60,7 @@ const Nav = () => {
                     </div>
                 </div>
             </div>
-        </nav>
+        </div>
     )
 }
 
