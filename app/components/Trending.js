@@ -27,7 +27,7 @@ const Trending = () => {
   }, [])
 
   return (
-    <section
+    <div
       className={`${instrumentSerif.className} font-extralight relative bg-slate-50 py-20 px-6 sm:px-12 flex flex-col justify-center items-center text-center overflow-hidden`}
     >
 
@@ -76,7 +76,7 @@ const Trending = () => {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   )
 }
 

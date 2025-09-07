@@ -26,7 +26,7 @@ const Nav = () => {
     }, [])
 
     return (
-        <nav
+        <div
             ref={nav}
             className={`${instrumentSerif.className} fixed top-0 left-0 w-full z-50 bg-white/70 backdrop-blur-md shadow-md`}
         >
@@ -66,7 +66,7 @@ const Nav = () => {
                     </div>
                 </div>
             </div>
-        </nav>
+        </div>
     )
 }
 

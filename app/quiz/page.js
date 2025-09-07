@@ -15,9 +15,9 @@ const Quiz = () => {
 
   const totalQuestions = 3;
 
-  const firstAnswer = (answer) => setQ1(answer);
-  const secondAnswer = (answer) => setQ2(answer);
-  const thirdAnswer = (answer) => setQ3(answer);
+  const firstAnswer = (answer) => {setQ1(answer);}
+  const secondAnswer = (answer) => {setQ2(answer);}
+  const thirdAnswer = (answer) => {setQ3(answer);}
 
   const aiAnswer = async () => {
     const res = await fetch("/api/personalityQuiz", {
