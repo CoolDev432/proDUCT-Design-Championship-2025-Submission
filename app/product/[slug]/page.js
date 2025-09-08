@@ -30,7 +30,6 @@ export default function Idea({ params }) {
   }
 
   const comment = async () => {
-    if (!Comment.trim()) return
     const res = await fetch(
       `/api/createComment?comment=${Comment}&name=${user?.firstName}&productId=${slug}`
     )
@@ -39,13 +38,17 @@ export default function Idea({ params }) {
   }
 
   const upvote = async () => {
+    setRes((prev) => ({
+      ...prev,
+      liked: !prev.liked,
+      upvotes: prev.liked ? prev.upvotes - 1 : prev.upvotes + 1
+    }));
     const res = await fetch(`/api/incrementUpvotes?id=${slug}&email=${user?.emailAddresses[0].emailAddress}`)
     const resJSON = await res.json()
-    setRes(prev => ({ ...prev, liked: resJSON.liked, upvotes: resJSON.upvotes }))
   }
 
   useEffect(() => {
-    if (user) fetchInfo(); fetchComments()
+    fetchInfo(); fetchComments()
   }, [user])
 
   return (
@@ -67,8 +70,8 @@ export default function Idea({ params }) {
 
           <button
             className={`flex flex-col items-center px-3 py-2 rounded-lg border cursor-pointer transition ${Res?.liked
-                ? "bg-orange-500 text-white border-orange-500"
-                : "hover:bg-gray-50"
+              ? "bg-orange-500 text-white border-orange-500"
+              : "hover:bg-gray-50"
               }`}
             onClick={upvote}
           >
