@@ -28,7 +28,7 @@ export async function POST(req) {
                 ],
             },
         ],
-        model: "deepseek-ai/DeepSeek-V3.1:fireworks-ai",
+        model: "deepseek-ai/DeepSeek-R1:together",
     }
 
     const aiResponse = await fetch("https://router.huggingface.co/v1/chat/completions", {
