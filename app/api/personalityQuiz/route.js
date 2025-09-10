@@ -35,7 +35,7 @@ export async function POST(req) {
 
     const aiResponse = await fetch("https://router.huggingface.co/v1/chat/completions", {
         headers: {
-            Authorization: `Bearer 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`,
+            Authorization: `Bearer ${process.env.HUGGING_FACE_API_KEY}`,
             "Content-Type": "application/json",
         },
         method: "POST",
