@@ -4,7 +4,7 @@ export async function POST(req) {
     const body = await req.json()
     const { problem, idea, plan } = body
 
-    const requestBody = {
+    const query = {
         messages: [
             {
                 role: "user",
@@ -33,11 +33,11 @@ export async function POST(req) {
 
     const aiResponse = await fetch("https://router.huggingface.co/v1/chat/completions", {
         headers: {
-            Authorization: `Bearer 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`,
+            Authorization: `Bearer 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`,
             "Content-Type": "application/json",
         },
         method: "POST",
-        body: JSON.stringify(requestBody),
+        body: JSON.stringify(query),
     })
 
     const result = await aiResponse.json();

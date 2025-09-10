@@ -42,14 +42,14 @@ const Nav = () => {
 
                 <div className="flex items-center gap-6">
                     <div className="flex-row  flex  gap-6 text-lg font-medium">
+                        <Link href="/" className="hover:text-indigo-600 transition-colors">
+                            Home
+                        </Link>
                         <Link href="/ideation" className="hover:text-indigo-600 transition-colors">
                             Ideation
                         </Link>
                         <Link href="/ideaPage" className="hover:text-indigo-600 transition-colors">
                             Idea Page
-                        </Link>
-                        <Link href="/" className="hover:text-indigo-600 transition-colors">
-                            Home
                         </Link>
                         <Link href="/quiz" className="hover:text-indigo-600 transition-colors">
                             Personality Quiz

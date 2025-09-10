@@ -16,12 +16,12 @@ const Hero = () => {
 
     const handleGenerateLogo = async () => {
         setIsLoading(true);
-        setImageUrl('');
-
-        const response = await fetch(`/api/createLogo?prompt=${encodeURIComponent(prompt)}`);
-        const result = await response.json();
-        console.log(result)
-        const url = result.images[0].url;
+        var final = prompt;
+        final = final + ' Make it professional if the prompt is like that.'
+        const res = await fetch(`/api/createLogo?prompt=${encodeURIComponent(prompt)}`);
+        const resJSON = await res.json();
+        console.log(resJSON)
+        const url = resJSON.images[0].url;
         setImageUrl(url);
         setIsLoading(false);
     };

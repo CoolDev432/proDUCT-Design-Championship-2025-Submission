@@ -1,5 +1,7 @@
 import React from 'react'
 import { FiMessageSquare, FiZap } from 'react-icons/fi'
+import { FiFeather } from 'react-icons/fi'
+
 import { Instrument_Serif } from 'next/font/google'
 const instrumentSerif = Instrument_Serif({
   weight: '400',
@@ -26,11 +28,29 @@ const About = () => {
             </p>
           </div>
 
+          <div className="bg-white shadow-xl hover:shadow-2xl h-80 w-80 m-9 rounded-2xl transition-all duration-300 p-6 flex flex-col items-center justify-center text-center">
+            <h1 className='text-6xl text-indigo-600 w-12 h-12 mb-4'>
+              ?
+            </h1>
+            <h2 className="text-xl font-semibold mb-2">Personality Quiz</h2>
+            <p className="text-gray-600">
+              Unsure what startup idea is best for you? Well, take our personality quiz. By answering just 3 questions, get your perfect startup idea!
+            </p>
+          </div>
+
           <div className="bg-white shadow-xl hover:shadow-2xl h-80 w-80 rounded-2xl transition-all duration-300 p-6 flex flex-col items-center justify-center text-center">
             <FiZap className="text-indigo-600 w-12 h-12 mb-4" />
             <h2 className="text-xl font-semibold mb-2">Ideation</h2>
             <p className="text-gray-600">
               Get AI-powered help to curate and refine your amazing ideas instantly.
+            </p>
+          </div>
+
+          <div className="bg-white shadow-xl hover:shadow-2xl h-80 w-80 rounded-2xl transition-all duration-300 p-6 flex flex-col items-center justify-center text-center">
+            <FiFeather className='text-6xl text-indigo-600 w-12 h-12 mb-4' />
+            <h2 className="text-xl font-semibold mb-2">LogoGen</h2>
+            <p className="text-gray-600">
+              Describe your startup and use AI to transform into a logo!
             </p>
           </div>
         </div>

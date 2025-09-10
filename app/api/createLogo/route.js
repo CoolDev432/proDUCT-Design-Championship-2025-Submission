@@ -8,7 +8,7 @@ export async function GET(req) {
     "https://router.huggingface.co/fal-ai/fal-ai/qwen-image",
     {
       headers: {
-        Authorization: `Bearer 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`,
+        Authorization: `Bearer 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`,
         "Content-Type": "application/json",
       },
       method: "POST",
@@ -19,8 +19,8 @@ export async function GET(req) {
     }
   );
 
-  const result = await response.json();
-  console.log(result);
+  const resJSON = await response.json();
+  console.log(resJSON);
 
-  return NextResponse.json(result);
+  return NextResponse.json(resJSON);
 }
