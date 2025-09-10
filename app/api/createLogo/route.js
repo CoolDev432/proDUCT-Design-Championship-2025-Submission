@@ -8,7 +8,7 @@ export async function GET(req) {
     "https://router.huggingface.co/fal-ai/fal-ai/qwen-image",
     {
       headers: {
-        Authorization: `Bearer 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`,
+        Authorization: `Bearer ${process.env.HUGGING_FACE_API_KEY}`,
         "Content-Type": "application/json",
       },
       method: "POST",

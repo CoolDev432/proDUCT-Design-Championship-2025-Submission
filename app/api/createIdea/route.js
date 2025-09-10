@@ -33,7 +33,7 @@ export async function POST(req) {
 
     const aiResponse = await fetch("https://router.huggingface.co/v1/chat/completions", {
         headers: {
-            Authorization: `Bearer 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`,
+            Authorization: `Bearer ${process.env.HUGGING_FACE_API_KEY}`,
             "Content-Type": "application/json",
         },
         method: "POST",
@@ -42,7 +42,7 @@ export async function POST(req) {
 
     const result = await aiResponse.json();
     console.log(result)
- let answer = result.choices?.[0]?.message?.content || "";
+ let answer = result.choices?.[0]?.message?.content;
 
 if (answer.includes("</think>")) {
   const parts = answer.split("</think>")
