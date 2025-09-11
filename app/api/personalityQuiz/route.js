@@ -44,7 +44,7 @@ export async function POST(req) {
 
     const result = await aiResponse.json();
     console.log(result)
- let answer = result.choices?.[0]?.message?.content || "";
+ let answer = result.choices?.[0]?.message?.content;
 
 if (answer.includes("</think>")) {
   const parts = answer.split("</think>")

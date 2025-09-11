@@ -41,7 +41,7 @@ const Hero = () => {
     })
     const data = await res.json()
     console.log("Response:", data)
-    setRes(data)
+    setRes(data.answer) // <-- FIXED
   }
 
   const submit = async () => {
