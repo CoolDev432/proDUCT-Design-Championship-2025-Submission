@@ -41,7 +41,8 @@ const Hero = () => {
     })
     const data = await res.json()
     console.log("Response:", data)
-    setRes(data.answer) // <-- FIXED
+    setRes(data.answer) 
+    
   }
 
   const submit = async () => {
@@ -52,18 +53,15 @@ const Hero = () => {
     formData.append("email", email)
     formData.append("name", user?.firstName)
 
-
+    
     const res = await fetch(`/api/createProduct`, {
       method: "POST",
       body: formData
     })
-
-        alert(`Your idea has been submitted!`)
+    alert(`Your idea has been submitted!`)
+    
   }
 
-  useEffect(() => {
-    console.log(logo)
-  }, [logo])
 
 
 

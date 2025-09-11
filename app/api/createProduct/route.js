@@ -31,5 +31,5 @@ export async function POST(req) {
         }
     })
 
-    NextResponse.json({success: true})
+    return NextResponse.json({success: true})
 }

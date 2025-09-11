@@ -5,7 +5,6 @@ import { Instrument_Serif } from 'next/font/google'
 import { useUser } from '@clerk/nextjs'
 import { FiArrowUp, FiSearch } from 'react-icons/fi'
 import { useRouter } from 'next/navigation'
-import { LuBot } from 'react-icons/lu';
 
 const instrumentSerif = Instrument_Serif({
   weight: '400',
@@ -13,7 +12,6 @@ const instrumentSerif = Instrument_Serif({
 })
 
 const Hero = () => {
-  const { user } = useUser()
   const [ideas, setIdeas] = useState()
   const router = useRouter()
   const [searchParam, setsearch] = useState()
@@ -39,7 +37,7 @@ const Hero = () => {
   }, [])
 
   return (
-    <section className={`${instrumentSerif.className} mt-28 px-6 `}>
+    <div className={`${instrumentSerif.className} mt-28 px-6 `}>
       <div className="text-center mb-12 mt-40 ">
               <div className="absolute top-40 left-20 w-42 h-42 bg-indigo-500/30 rounded-full blur-3xl z-10"></div>
 
@@ -83,13 +81,8 @@ const Hero = () => {
         ))}
 
         </div>
-       <div className="flex w-[98vw] justify-end p-1">
-  <div className="bg-indigo-600 p-4 hover:border-indigo-700 hover:border-2 hover:text-indigo-700 hover:scale-110 hover:bg-white border-solid transition-all duration-200 text-white text-2xl rounded-3xl cursor-pointer">
-    <LuBot /> 
-  </div>
-</div>
 
-    </section>
+    </div>
   )
 }
 
