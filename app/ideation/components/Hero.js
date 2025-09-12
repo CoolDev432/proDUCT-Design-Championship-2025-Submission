@@ -12,7 +12,7 @@ const instrumentSerif = Instrument_Serif({
 const Hero = () => {
   const { user } = useUser()
   const [problem, setProblem] = useState("")
-  const [logo, setLogo] = useState([])
+  const [logo, setLogo] = useState(null)
   const [idea, setIdea] = useState("")
   const [Res, setRes] = useState("")
   const [plan, setPlan] = useState("")
@@ -47,7 +47,7 @@ const Hero = () => {
 
   const submit = async () => {
     const formData = new FormData()
-    formData.append("logo", logo)
+    if (logo) formData.append("logo", logo)
     formData.append("content", Res)
     formData.append("title", title)
     formData.append("email", email)
@@ -135,12 +135,13 @@ const Hero = () => {
             className="m-5 p-4 rounded-2xl w-90 border border-black"
           />
 
-          <textarea
-            value={Res}
-            onChange={(e) => setcontent(e.target.value)}
-            className="p-3 border border-black h-90 md:w-320 w-full sm:w-full"
-            placeholder="Your AI-generated plan will appear here..."
-          />
+<textarea
+  value={Res}
+  onChange={(e) => setRes(e.target.value)}
+  className="p-3 border border-black h-90 md:w-320 w-full sm:w-full"
+  placeholder="Your AI-generated plan will appear here..."
+/>
+
 
           <div
             onClick={submit}
