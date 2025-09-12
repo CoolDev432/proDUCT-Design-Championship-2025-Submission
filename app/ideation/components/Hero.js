@@ -22,7 +22,7 @@ const Hero = () => {
   useEffect(() => {
     setEmail(user?.emailAddresses[0].emailAddress)
   }, [user])
-  
+
 
   const btn = useRef(null)
 
@@ -41,8 +41,8 @@ const Hero = () => {
     })
     const data = await res.json()
     console.log("Response:", data)
-    setRes(data.answer) 
-    
+    setRes(data.answer)
+
   }
 
   const submit = async () => {
@@ -53,13 +53,13 @@ const Hero = () => {
     formData.append("email", email)
     formData.append("name", user?.firstName)
 
-    
+
     const res = await fetch(`/api/createProduct`, {
       method: "POST",
       body: formData
     })
     alert(`Your idea has been submitted!`)
-    
+
   }
 
 
@@ -119,10 +119,13 @@ const Hero = () => {
         </>
       ) : (
         <div className="m-10 flex justify-center items-center flex-col">
+          <label htmlFor="logo-upload">Import Logo:</label>
           <input
+            id="logo-upload"
             type="file"
             onChange={(e) => setLogo(e.target.files?.[0])}
           />
+
 
           <input
             type="text"
