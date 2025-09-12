@@ -42,8 +42,8 @@ const Nav = () => {
 
                 <div className="flex items-center gap-6">
                     <div className="flex-row  flex  gap-6 text-lg font-medium">
-                       <Link href="/ideation" className="hover:text-indigo-600 transition-colors">
-                            Ideation
+                       <Link href="/ideaPage" className="hover:text-indigo-600 transition-colors">
+                            IdeaPage
                         </Link>
                         <Link href="/dashboard" className="hover:text-indigo-600 transition-colors">
                             Dashboard
